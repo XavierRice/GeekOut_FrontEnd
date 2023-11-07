@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 
 export default function TwitchGame(){
 
-    // const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-    // const apiUrl = 'https://api.igdb.com/v4/games';
+    const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = 'https://api.igdb.com/v4/games';
 
     const [fetchedGames, setFetchedGames] = useState([])
-    const [ fetchedGame, setFetchedGame] = useState({})
+    const [fetchedGame, setFetchedGame] = useState({})
 
     // const fetchTwitch = async () => {
     //     try {
@@ -18,8 +18,7 @@ export default function TwitchGame(){
     //                 method: 'POST',
     //                 headers: {
     //                     'Accept': 'application/json',
-    //                     'Client-ID': 'hzlg3b9xioct6lm1l98yjemtkxkllk',
-    //                     'Authorization': 'Bearer gpay0ik0jcx7e0bo1s73020amep4yb',
+    //                    
     //                 },
     //                 body: JSON.stringify({
     //                     fields: "name, cover, genres, screenshots, storyline, videos",
