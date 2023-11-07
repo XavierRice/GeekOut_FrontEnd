@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Game from "./Game.jsx";
 
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
@@ -39,7 +39,7 @@ function Games() {
                     </thead>
                     <tbody>
                         {games.map((game) => {
-                            return <game key={game.id} game={game} />;
+                            return <Game key={game.id} game={game} />;
                         })}
                     </tbody>
                 </table>
@@ -47,9 +47,6 @@ function Games() {
         </div>
     );
 
+};
 
-
-
-
-
-}
+export default Games;

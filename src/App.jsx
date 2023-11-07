@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 //PAGES
 import Home from '../pages/Home.jsx'
+import Index from '../pages/Index.jsx'
 import FourOFour from '../pages/FourOFour.jsx'
 import TwitchGame from '../components/API.jsx'
 
@@ -18,6 +19,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/games" element={<Index/>} />
           <Route path="/twitch" element={<TwitchGame/>} />
           <Route path="*" element={<FourOFour/>} />
         </Routes>
@@ -26,4 +28,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
