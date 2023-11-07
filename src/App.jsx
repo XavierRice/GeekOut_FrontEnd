@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
 
 //PAGES
 import Home from '../pages/Home.jsx'
@@ -8,8 +9,7 @@ import FourOFour from '../pages/FourOFour.jsx'
 import TwitchGame from '../components/API.jsx'
 
 //COMPONENTS
-
-import './App.css'
+import GameDetails from '../components/GameDetails.jsx'
 
 function App() {
   
@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Index/>} />
+          <Route path="/games/:id" element={<GameDetails/>} />
           <Route path="/twitch" element={<TwitchGame/>} />
           <Route path="*" element={<FourOFour/>} />
         </Routes>
