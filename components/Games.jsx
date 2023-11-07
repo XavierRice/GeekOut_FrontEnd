@@ -31,18 +31,14 @@ function Games() {
     return (
         <div className="Games">
             <section>
-                <table className="table-stripe table-hover">
-                    <thead>
-                        <tr>
-                           <h3>Gaming Section</h3> 
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div className="table-stripe table-hover">
+                    <h3>Gaming Section</h3>
+                    <div className="table-body">
                         {games.map((game) => {
                             return <Game key={game.id} game={game} />;
                         })}
-                    </tbody>
-                </table>
+                    </div>
+                </div>
             </section>
         </div>
     );

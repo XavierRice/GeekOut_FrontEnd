@@ -6,6 +6,7 @@ import './App.css'
 import Home from '../pages/Home.jsx'
 import Index from '../pages/Index.jsx'
 import New from '../pages/New.jsx'
+import EditGame from '../components/Edit.jsx'
 import FourOFour from '../pages/FourOFour.jsx'
 import TwitchGame from '../components/API.jsx'
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Index/>} />
           <Route path="/games/:id" element={<GameDetails/>} />
+          <Route path="/games/:id/edit" element={<EditGame/>} />
           <Route path="/games/new" element={<New/>} />
           <Route path="/twitch" element={<TwitchGame/>} />
           <Route path="*" element={<FourOFour/>} />
