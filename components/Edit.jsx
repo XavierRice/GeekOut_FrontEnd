@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 const EditGame = () => {
-    const id = useParams();
+    const {id} = useParams();
     const navigate = useNavigate();
 
     const [nameError, setNameError] = useState(false);
@@ -83,7 +83,7 @@ const EditGame = () => {
 
     return (
         <div className="NewForm">
-            <h3 className="header">New Games</h3>
+            <h3 className="header">Edit Games</h3>
             <form onSubmit={handleSubmit} className="form-group">
                 <label htmlFor="name">Name:</label>
                 <input

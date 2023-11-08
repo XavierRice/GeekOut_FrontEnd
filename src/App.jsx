@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -8,13 +8,15 @@ import Index from '../pages/Index.jsx'
 import New from '../pages/New.jsx'
 import EditGame from '../components/Edit.jsx'
 import FourOFour from '../pages/FourOFour.jsx'
-import TwitchGame from '../components/API.jsx'
+import Rawg from '../components/Rawg.jsx'
 
 //COMPONENTS
 import GameDetails from '../components/GameDetails.jsx'
 
 function App() {
   
+const [ gameName, setGameName] = useState("")
+
 
   return (
     <div className='App'>
@@ -22,10 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Index/>} />
-          <Route path="/games/:id" element={<GameDetails/>} />
+          <Route path="/games/:id" element={<GameDetails setGameName={setGameName}/>} />
           <Route path="/games/:id/edit" element={<EditGame/>} />
           <Route path="/games/new" element={<New/>} />
-          <Route path="/twitch" element={<TwitchGame/>} />
+          <Route path="/twitch" element={<Rawg gameName={gameName}/>} />
           <Route path="*" element={<FourOFour/>} />
         </Routes>
       </main>

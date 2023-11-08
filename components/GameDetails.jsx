@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import ReactPlayer from "react-player/youtube";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 
-const GameDetails = () => {
+const GameDetails = ({setGameName}) => {
 
     const [game, setGame] = useState({})
     const { id } = useParams();
@@ -27,6 +28,7 @@ const GameDetails = () => {
 
     useEffect(() => {
         fetchedGame()
+        
     }, [id])
 
 
@@ -43,13 +45,15 @@ const GameDetails = () => {
             }
         }
     }
+useEffect(()=>{
 
-    console.log(game)
+    setGameName(game.name)
+}, [id])
 
     return (
 
         <div key={game.id} className="card details">
-            <img className="card-img-top" src="..." alt="Card image cap"></img>
+            <img className="card-img-top" src="..." alt="Card image cap"></img> {/* if or src tags*/}
             <div className="card-body">
                 <h2 className="card-title">{game.name}</h2>
                 <h4 className="card-text">{game.genre}</h4>
@@ -65,7 +69,7 @@ const GameDetails = () => {
                     <p className="list-group-item">{game.id}</p>
                     <section className="list-group-item">
                         {game.video_id ? (
-                            <span> THIS IS OUR VIDEO PLAYER</span>
+                            <ReactPlayer url={`https://www.youtube.com/watch?v=${game.video_id}`} loop={"true"}/>
                         ) : (
                             <span>&nbsp; &nbsp; &nbsp;</span>
                         )}
@@ -91,9 +95,7 @@ const GameDetails = () => {
                 </div>
             </div>
         </div>
-
     )
-
 }
 
 export default GameDetails;

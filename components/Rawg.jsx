@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 
 
 
-export default function TwitchGame(){
+export default function Rawg({gameName}){
 
+    console.log(gameName)
     const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
     const apiUrl = 'https://api.igdb.com/v4/games';
 
@@ -67,7 +68,7 @@ export default function TwitchGame(){
 
     }, [])
 
-   
+   console.log(gameName)
     let game = "Tomb Raider"
     
     function gameChanger(game){

@@ -38,7 +38,6 @@ const Form = () => {
     let value = event.target.value
     value = value === "True" ? true : false
     setGame({ ...game, [event.target.id]: value });
-
   }
   
   const addGame = () => {
@@ -133,7 +132,7 @@ const Form = () => {
                   name="is_favorite"
                   value="True"
                   onChange={handleFavRadio}
-                  ></input>
+                ></input>
                 <label class="form-check-label" htmlForfor="favoriteTrue">
                   A FAVE!
                 </label>
@@ -142,7 +141,7 @@ const Form = () => {
                 <input
                   class="form-check-input"
                   type="radio"
-                  classNameame="gridRadios"
+                  className="gridRadios"
                   id="favoriteFalse"
                   name="is_favorite"
                   value="False"
