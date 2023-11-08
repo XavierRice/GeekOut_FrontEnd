@@ -13,6 +13,7 @@ export default function Game({ game }) {
             {game.imgage_id ? (<img class="card-img-top" src="..." alt="Card image cap" />) : (<span>&nbsp; &nbsp; &nbsp;</span>)}
             <div className="card-body">
                 <h3>{game.name}</h3>
+                <h3>{game.genre}</h3>
                 <div>
                     {game.is_favorite ? (
                         <span><h3>👾</h3></span>

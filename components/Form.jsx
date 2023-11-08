@@ -23,7 +23,7 @@ const Form = () => {
     } else {
       setNameError(false);
     }
-    if (!game.cost) {
+    if (!game.cost ) {
       setCostError(true);
     } else {
       setCostError(false);
@@ -40,9 +40,9 @@ const Form = () => {
     setGame({ ...game, [event.target.id]: value });
   }
   
-  const addGame = () => {
+  const addGame = async () => {
       try {
-          const res = fetch(`${API}/games`, {
+          const res =  await fetch(`${API}/games`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(game),
@@ -50,7 +50,7 @@ const Form = () => {
             if (!res.ok) {
                 throw new Error("your post ain't postin daddy!");
             } else {
-                const newGame = res.json();
+                const newGame = await res.json();
                 newForm.id ? navigate(`/games/${newGame.id}`) : navigate(`/games`);
             }
         } catch (err) {
@@ -121,34 +121,33 @@ const Form = () => {
         </label>
         <fieldset className="form-group">
           <div className="row">
-            <legend class="col-form-label col-sm-2 pt-0"></legend>
+            <legend className="col-form-label col-sm-2 pt-0"></legend>
             <div className="col-sm-10">
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input gridRadios"
                   type="radio"
-                  className="gridRadios"
+                 
                   id="favoriteTrue"
                   name="is_favorite"
                   value="True"
                   onChange={handleFavRadio}
                 ></input>
-                <label class="form-check-label" htmlForfor="favoriteTrue">
+                <label className="form-check-label" htmlFor="favoriteTrue">
                   A FAVE!
                 </label>
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input gridRadios"
                   type="radio"
-                  className="gridRadios"
                   id="favoriteFalse"
                   name="is_favorite"
                   value="False"
 
                   onChange={handleFavRadio}
                   ></input>
-                <label class="form-check-label" htmlForfor="favoriteFalse">
+                <label className="form-check-label" htmlFor="favoriteFalse">
                   meh
                 </label>
               </div>
@@ -165,7 +164,8 @@ const Form = () => {
           id="cost"
           value={game.cost}
           type="number"
-          min={0.01}
+         
+          min={.01}
           onChange={handleTextChange}
           placeholder="How much you want for it"
           required

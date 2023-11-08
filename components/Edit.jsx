@@ -18,10 +18,11 @@ const EditGame = () => {
         image_id: "",
         cost: 0
     })
+
     useEffect( () => {
         const fetchedGame = async () => {
             try {
-             const res = fetch(`${API}/games/${id}`)
+             const res = await fetch(`${API}/games/${id}`)
              if(!res.ok){
                 throw new Error("failed to fetch game data")
              }
@@ -34,6 +35,7 @@ const EditGame = () => {
         };
         fetchedGame()
     }, [id])
+
 
     useEffect(() => {
         if (!game.name) {
@@ -57,9 +59,9 @@ const EditGame = () => {
         setGame({ ...game, is_favorite: !game.is_favorite })
     }
 
-    const updateGame = () => {
+    const updateGame = async () => {
         try {
-            const res = fetch(`${API}/games/${id}`, {
+            const  res =  await fetch(`${API}/games/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(game)
@@ -67,8 +69,8 @@ const EditGame = () => {
             if (!res.ok) {
                 console.log("something up with the Fetch")
             }
-            res.json()
-            console.log(up)
+            await res.json()
+            console.log("it's goood")
             navigate(`/games/${id}`)
         } catch (error) {
             console.error(error)
