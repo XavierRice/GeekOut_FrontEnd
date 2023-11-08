@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
-import { croc, Divinity2, GodofWar, HomeAlone ,Ico ,ManiacMansion, PrinceOfPersia, roadrash, Sonic, Spyro, ZAMN} from '../public/pictures'
+import imgObj from "../src/assets/pictures";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -25,6 +25,7 @@ const GameDetails = ({ setGameName }) => {
 
       // const Base_URL = "http://localhost:8090/"
       // const fullImageUrl = Base_URL + resJson.image_id
+      console.log("image:",resJson.image_id)
       setImageUrl(resJson.image_id)
     } catch (error) {
       console.error(error);
@@ -58,7 +59,7 @@ console.log(imageUrl)
     <div key={game.id} className="card details">
       <img
         className="card-img-top"
-        src={imageUrl}
+        src={imgObj[imageUrl]}
         alt="Card image cap"
         // onError={(e) => {
         //   e.target.src = "public/HomeAlone.jpeg"; // Provide a fallback image path

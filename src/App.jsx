@@ -14,6 +14,7 @@ import Rawg from '../components/Rawg.jsx'
 import GameDetails from '../components/GameDetails.jsx'
 import NavBar from '../components/NavBar.jsx'
 import GamesCard from '../components/gamesCards.jsx'
+import GaspHome from '../components/GaspHome.jsx'
 
 function App() {
   
@@ -31,6 +32,7 @@ const [ gameName, setGameName] = useState("")
           <Route path="/games/:id/edit" element={<EditGame/>} />
           <Route path="/games/new" element={<New/>} />
           <Route path="/rawg" element={<Rawg gameName={gameName}/>} />
+          <Route path="/gasp" element={<GaspHome/>} />
           <Route path="*" element={<FourOFour/>} />
         </Routes>
       </main>

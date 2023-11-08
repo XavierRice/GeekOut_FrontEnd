@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Form.css"
+
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -7,10 +10,11 @@ const Form = () => {
   const navigate = useNavigate();
   const [nameError, setNameError] = useState(false);
   const [costError, setCostError] = useState(false);
+  const [idError, setIdError] = useState(false)
   const [game, setGame] = useState({
     name: "",
-    genres: "",
-    is_favorite: null,
+    genre: "",
+    is_favorite: true,
     storyline: "",
     video_id: "",
     image_id: "",
@@ -28,34 +32,44 @@ const Form = () => {
     } else {
       setCostError(false);
     }
-  }, [game.name, game.cost]); //ERROR FLAGS FOR NAME AND COST
+    if (game.video_id.length > 12){
+      setIdError(true)
+    }else{
+      setIdError(false)
+    }
+
+  }, [game.name, game.cost, game.video_id]); //ERROR FLAGS FOR NAME AND COST
 
   const handleTextChange = (event) => {
+    
     setGame({ ...game, [event.target.id]: event.target.value });
   };
 
   const handleFavRadio = (event) =>{
     let value = event.target.value
-    value = value === "True" ? true : false
+    // value = value === "True" ? true : false
     setGame({ ...game, [event.target.id]: value });
   }
   
   const addGame = async () => {
-      try {
-          const res =  await fetch(`${API}/games`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(game),
-            });
-            if (!res.ok) {
-                throw new Error("your post ain't postin daddy!");
-            } else {
-                const newGame = await res.json();
-                newForm.id ? navigate(`/games/${newGame.id}`) : navigate(`/games`);
-            }
-        } catch (err) {
-            console.error(err);
-        }
+    console.log( "game:", game)
+      axios.post(`${API}/games`, game) .then(({data})=>{ data.id ? navigate(`/games/${data.id}`) : navigate(`/games`)} ).catch((err)=>{console.log(err)})
+      // try {
+      //     const res =  await fetch(`${API}/games`, {
+      //         method: "POST",
+      //         headers: { "Content-Type": "application/json" },
+      //         body: JSON.stringify(game),
+      //       });
+      //       console.log(res)
+      //       if (!res.ok) {
+      //           throw new Error("your post ain't postin daddy!");
+      //       } else {
+      //           await res.json();
+      //           newGame.id ? navigate(`/games/${newGame.id}`) : navigate(`/games`);
+      //       }
+      //   } catch (err) {
+      //       console.error(err);
+      //   }
     };
     
     const handleSubmit = (event) => {
@@ -64,12 +78,14 @@ const Form = () => {
     };
     
     return (
+      <div className="container d-flex justify-content-center align-items-center vh-100">
         <div className="NewForm">
       <h3 className="header">New Games</h3>
       <form onSubmit={handleSubmit} className="form-group mx-auto">
         <label htmlFor="name">Name:</label>
         <input
-          className="form-control"
+          className="form-control "
+          style={{ width: "150%" }}
           id="name"
           value={game.name}
           type="text"
@@ -80,11 +96,12 @@ const Form = () => {
         {nameError && (
             <div className="error-message">You Must Enter a Game title yo!</div>
             )}
-        <label htmlFor="genres">Genres:</label>
+        <label htmlFor="genre">Genre:</label>
         <input
-          className="form-control"
-          id="genres"
-          value={game.genres}
+          className="form-control "
+          style={{ width: "150%" }}
+          id="genre"
+          value={game.genre}
           type="text"
           onChange={handleTextChange}
           placeholder="Type of Game: First-Person-Shooter"
@@ -98,6 +115,9 @@ const Form = () => {
           onChange={handleTextChange}
           placeholder="Video id?"
           />
+           {idError && (
+            <div className="error-message">Your id must be 12 chars or less!</div>
+            )}
         <label htmlFor="image_id">Image_id:</label>
         <input
           className="form-control"
@@ -110,8 +130,10 @@ const Form = () => {
         <label htmlFor="">Storyline:</label>
         <textarea
           className="form-control"
+          style={{ width: "190%" }}
           id="storyline"
           value={game.storyline}
+          rows="6"
           type="text"
           onChange={handleTextChange}
           placeholder="Tell me about the game..."
@@ -128,9 +150,9 @@ const Form = () => {
                   className="form-check-input gridRadios"
                   type="radio"
                  
-                  id="favoriteTrue"
+                  id="is_favorite"
                   name="is_favorite"
-                  value="True"
+                  value={true}
                   onChange={handleFavRadio}
                 ></input>
                 <label className="form-check-label" htmlFor="favoriteTrue">
@@ -141,9 +163,9 @@ const Form = () => {
                 <input
                   className="form-check-input gridRadios"
                   type="radio"
-                  id="favoriteFalse"
+                  id="is_favorite"
                   name="is_favorite"
-                  value="False"
+                  value={false}
 
                   onChange={handleFavRadio}
                   ></input>
@@ -181,6 +203,7 @@ const Form = () => {
       <Link to={`/games`} className="d-block text-center">
         <button className="btn btn-secondary">Nevermind!</button>
       </Link>
+    </div>
     </div>
   );
 };
