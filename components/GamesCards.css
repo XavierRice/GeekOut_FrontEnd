@@ -1,0 +1,66 @@
+.card-vertical-child {
+    position: absolute;
+    height: 60.4%;
+    width: 99.22%;
+    top: 70.96%;
+    right: 0.78%;
+    bottom: -31.35%;
+    left: 0;
+    border-radius: 0 0 var(--br-xl) var(--br-xl);
+    background: linear-gradient(100.38deg, #fff, rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    opacity: 0.95;
+  }
+  .gamegenre,
+  .gamename {
+    position: absolute;
+    top: 79.21%;
+    left: 7.78%;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .gamename {
+    top: 70.96%;
+  }
+  .card-vertical-item {
+    position: absolute;
+    height: 10.56%;
+    width: 12.45%;
+    top: 6.6%;
+    right: 8.56%;
+    bottom: 82.84%;
+    left: 78.99%;
+    border-radius: 8.3px;
+    background: linear-gradient(98.85deg, #fff, rgba(255, 255, 255, 0));
+    backdrop-filter: blur(11.85px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8.88888931274414px;
+    box-sizing: border-box;
+  }
+  .game-storyline {
+    position: absolute;
+    height: 31.02%;
+    width: 83.66%;
+    top: 91.75%;
+    left: 7.78%;
+    font-size: 14px;
+    line-height: 16px;
+    display: inline-block;
+  }
+  .card-vertical {
+    border-radius: var(--br-xl);
+    width: 257px;
+    height: 303px;
+    background-image: url(/public/cardvertical@3x.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+  }
+  

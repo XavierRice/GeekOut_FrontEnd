@@ -13,6 +13,7 @@ import Rawg from '../components/Rawg.jsx'
 //COMPONENTS
 import GameDetails from '../components/GameDetails.jsx'
 import NavBar from '../components/NavBar.jsx'
+import GamesCard from '../components/gamesCards.jsx'
 
 function App() {
   

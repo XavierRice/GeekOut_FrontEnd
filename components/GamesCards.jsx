@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
-import { croc, Divinity2, GodofWar, HomeAlone ,Ico ,ManiacMansion, PrinceOfPersia, roadrash, Sonic, Spyro, ZAMN} from '../public/pictures'
+import './GamesCards.css'
 
-const API = import.meta.env.VITE_REACT_APP_API_URL;
+const GamesCard =({ setGameName }) => {
+  const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-const GameDetails = ({ setGameName }) => {
+
   const [game, setGame] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
-
-  const [imageUrl, setImageUrl] = useState(null);
 
   const fetchedGame = async () => {
     try {
@@ -22,10 +21,6 @@ const GameDetails = ({ setGameName }) => {
       const resJson = await res.json();
       console.log(resJson);
       setGame(resJson);
-
-      // const Base_URL = "http://localhost:8090/"
-      // const fullImageUrl = Base_URL + resJson.image_id
-      setImageUrl(resJson.image_id)
     } catch (error) {
       console.error(error);
     }
@@ -51,35 +46,12 @@ const GameDetails = ({ setGameName }) => {
     setGameName(game.name);
   }, [id]);
 
-
-console.log(imageUrl)
-
   return (
-    <div key={game.id} className="card details">
-      <img
-        className="card-img-top"
-        src={imageUrl}
-        alt="Card image cap"
-        // onError={(e) => {
-        //   e.target.src = "public/HomeAlone.jpeg"; // Provide a fallback image path
-        // }}
-      ></img>{" "}
-      {/* if or src tags*/}
-      <div className="card-body">
-        <h2 className="card-title">{game.name}</h2>
-        <h4 className="card-text">{game.genre}</h4>
-        <p className="card-body">{game.storyline}</p>
-        <div className="list-group list-group-flush">
-          <section className="list-group-item">
-            {game.is_favorite ? (
-              <span>⭐️</span>
-            ) : (
-              <span>&nbsp; &nbsp; &nbsp;</span>
-            )}
-          </section>
-          <p className="list-group-item">{game.id}</p>
-          <section className="list-group-item">
-            {game.video_id ? (
+    <div className="card-vertical" >
+      <div className="card-vertical-child" />
+      <div className="gamegenre">{game.name}</div>
+      <div className="gamename">{game.genre}</div>
+      {game.video_id ? (
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${game.video_id}`}
                 loop={true}
@@ -87,9 +59,7 @@ console.log(imageUrl)
             ) : (
               <span>&nbsp; &nbsp; &nbsp;</span>
             )}
-          </section>
-        </div>
-      </div>
+      <div className="game-storyline">{game.storyline}</div>
       <div className="card-body gameNav">
         <div className="card-link">
           {" "}
@@ -111,4 +81,4 @@ console.log(imageUrl)
   );
 };
 
-export default GameDetails;
+export default GamesCard;
