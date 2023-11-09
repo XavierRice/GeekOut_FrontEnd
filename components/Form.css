@@ -1,3 +1,30 @@
-.error-message{
-    color:red;
-}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('src/assets/404games.jpg'); /* Replace 'path/to/your/background-image.jpg' with the actual path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .NewForm {
+    background-color: white; /* White background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Ensure the form takes up 100% width of the grey background */
+    max-width: 600px; /* Set a maximum width for the form if needed */
+  }
+  .form-group input[type="text"] {
+    width: 100%; /* Make the text input fill the available width */
+    margin-bottom: 10px; /* Add some bottom margin for spacing between inputs */
+  }
+  .form-group textarea {
+    width: 100%; /* Make the textarea fill the available width */
+  }
+  

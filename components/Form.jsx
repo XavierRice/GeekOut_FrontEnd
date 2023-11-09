@@ -65,6 +65,7 @@ const Form = () => {
   };
 
   return (
+    <div className="wrapper">
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="NewForm">
         <h3 className="header">New Games</h3>
@@ -172,6 +173,7 @@ const Form = () => {
           <button className="btn btn-secondary">Nevermind!</button>
         </Link>
       </div>
+    </div>
     </div>
   );
 };
