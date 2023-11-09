@@ -15,6 +15,7 @@ import GameDetails from '../components/GameDetails.jsx'
 import NavBar from '../components/NavBar.jsx'
 import GamesCard from '../components/gamesCards.jsx'
 import GaspHome from '../components/GaspHome.jsx'
+import Header from '../components/Header.jsx'
 
 function App() {
   
@@ -24,7 +25,7 @@ const [ gameName, setGameName] = useState("")
   return (
     <div className='App'>
       <main>
-        <NavBar/>
+        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Index/>} />

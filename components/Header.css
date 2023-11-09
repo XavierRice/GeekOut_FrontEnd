@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Modak:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-luckiest-guy: "Luckiest Guy";
+  --font-modak: Modak;
+  --font-poppins: Poppins;
+
+  /* font sizes */
+  --font-size-13xl: 32px;
+  --font-size-21xl: 40px;
+  --font-size-67xl: 86px;
+  --font-size-base: 16px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-red: #fb1212;
+  --color-black: #000;
+
+  /* Gaps */
+  --gap-16xl: 35px;
+  --gap-47xl: 66px;
+
+  /* Paddings */
+  --padding-mini: 15px;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+}
+
+.geek {
+    color: var(--color-black);
+  }
+  .out {
+    color: var(--color-red);
+  }
+  .games,
+  .geekout {
+    margin: 0;
+  }
+  .games {
+    font-size: var(--font-size-21xl);
+  }
+  .geekout-games {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    height: 167px;
+  }
+  .geekout-games-wrapper {
+    width: 490px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frame-wrapper {
+    height: 159px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: var(--padding-mini);
+    box-sizing: border-box;
+  }
+  .home {
+    text-decoration: none;
+    position: relative;
+    color: inherit;
+    display: inline-block;
+    width: 108px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .frame-parent,
+  .home-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .home-parent {
+    width: 630px;
+    height: 111px;
+    font-size: var(--font-size-13xl);
+    color: var(--color-red);
+    font-family: var(--font-luckiest-guy);
+  }
+  .frame-parent {
+    align-self: stretch;
+    text-align: left;
+    font-size: var(--font-size-67xl);
+    color: var(--color-black);
+    font-family: var(--font-modak);
+  }
+  @media screen and (max-width: 420px) {
+    .home-parent {
+      flex-direction: row;
+      gap: var(--gap-47xl);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .frame-parent {
+      flex-direction: column;
+      gap: var(--gap-16xl);
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+  
