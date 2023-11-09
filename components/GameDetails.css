@@ -1,0 +1,30 @@
+.game-card {
+    max-width: 750px; /* Set the maximum width of the card */
+    margin: 0 auto; /* Center the card horizontally */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Add shadow to the card */
+    background-color: slategrey;
+  }
+  .card-img-top {
+    width: 100%; /* Make sure the image takes up the full width of its container */
+    height: 100%; /* Make sure the image takes up the full height of its container */
+    object-fit: cover; /* Ensure the image covers the entire container while maintaining its aspect ratio */
+    
+  }
+
+  .favorite-badge {
+    background-color: gold; /* Set the background color to gold */
+    border: 1px solid #d2a323; /* Set the border to a gold color shade */
+    padding: 8px; /* Add padding for spacing */
+    display: inline-block; /* Make sure the badge doesn't take up the full width */
+    border-radius: 5px; /* Optional: Add rounded corners to the badge */
+    margin-bottom: 10px; /* Optional: Add bottom margin for spacing */
+  }
+  
+  .video-player {
+    width: 100%; /* Set the width to 100% of its parent element */
+    height: 100%; /* Set the height to 100% of its parent element */
+  }
+  
+  
+  
+  
