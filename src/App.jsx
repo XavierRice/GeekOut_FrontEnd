@@ -16,6 +16,7 @@ import NavBar from '../components/NavBar.jsx'
 import GamesCard from '../components/gamesCards.jsx'
 import GaspHome from '../components/GaspHome.jsx'
 import Header from '../components/Header.jsx'
+import About from '../components/About.jsx'
 
 function App() {
   
@@ -32,6 +33,7 @@ const shouldShowHeader = !['*'].includes(window.location.pathname)
           <Route path="/games/:id" element={<GameDetails setGameName={setGameName}/>} />
           <Route path="/games/:id/edit" element={<EditGame/>} />
           <Route path="/games/new" element={<New/>} />
+          <Route path="/games/about" element={<About/>} />
           <Route path="/rawg" element={<Rawg gameName={gameName}/>} />
           <Route path="/gasp" element={<GaspHome/>} />
           <Route path="*" element={<FourOFour/>} />

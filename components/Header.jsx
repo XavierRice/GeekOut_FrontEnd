@@ -23,16 +23,18 @@ const Header = () => {
         </div>
       </div>
       <div className="home-parent">
-      <Link to="/">
-        <h3 className="home">Home</h3>
+        <Link to="/">
+          <h3 className="home">Home</h3>
         </Link>
         <Link to="/games">
-        <h3 className="home">Games</h3>
+          <h3 className="home">Games</h3>
         </Link>
         <Link to="/games/new">
-        <h3 className="home">{`NEW ! `}</h3>
+          <h3 className="home">{`NEW ! `}</h3>
         </Link>
-        <h3 className="home">{`About `}</h3>
+        <Link to="/games/about">
+          <h3 className="home">{`About `}</h3>
+        </Link>
       </div>
     </div>
   );
