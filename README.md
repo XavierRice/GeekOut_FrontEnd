@@ -4,7 +4,7 @@
 
 Introducing GeekOut:Games, a passion project crafted by Xavier Rice and Gaspare Carollo!
 
-Dive into the gaming world with our innovative app, GeekOut:Games! 🕹️ Manage your in-game transactions seamlessly using JS, React Library, Express, and RESTful routes! 
+Dive into the gaming world with our innovative app, GeekOut:Games! 🕹️[https://geekoutgames.netlify.app/] Manage your in-game transactions seamlessly using JS, React Library, Express, and RESTful routes! 
 
 Check out our user-friendly front-end deployment at  and explore the magic behind the scenes on our GitHub Backend repository [https://geekout-backend.onrender.com]
 
