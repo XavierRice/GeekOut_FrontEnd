@@ -21,8 +21,9 @@
     max-width: 600px; /* Set a maximum width for the form if needed */
   }
   .form-group input[type="text"] {
-    width: 100%; /* Make the text input fill the available width */
-    margin-bottom: 10px; /* Add some bottom margin for spacing between inputs */
+    position: relative;
+    left: 65px;
+    width: 75%;
   }
   .form-group textarea {
     width: 100%; /* Make the textarea fill the available width */

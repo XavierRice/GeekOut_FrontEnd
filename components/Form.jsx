@@ -73,7 +73,7 @@ const Form = () => {
           <label htmlFor="name">Name:</label>
           <input
             className="form-control "
-            style={{ width: "150%" }}
+            style={{ width: "75%" }}
             id="name"
             value={game.name}
             type="text"
@@ -87,7 +87,7 @@ const Form = () => {
           <label htmlFor="genre">Genre:</label>
           <input
             className="form-control "
-            style={{ width: "150%" }}
+            style={{ width: "75%" }}
             id="genre"
             value={game.genre}
             type="text"
@@ -120,7 +120,7 @@ const Form = () => {
           <label htmlFor="">Storyline:</label>
           <textarea
             className="form-control"
-            style={{ width: "190%" }}
+            style={{ width: "87%", marginLeft:"40px" }}
             id="storyline"
             value={game.storyline}
             rows="6"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import Portal from '../src/assets/Portal.jpb'
+import portalImage from '../src/assets/Portal.jpg'
 
 import "./Home.css"
 
