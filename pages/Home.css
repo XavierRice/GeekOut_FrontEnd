@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("src/assets/Portal.jpg") no-repeat center center/cover;
+    background: url("../src/assets/Portal.jpg") no-repeat center center/cover;
     align-items: center;
   }
   

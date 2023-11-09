@@ -21,7 +21,7 @@ function App() {
   
 const [ gameName, setGameName] = useState("")
 
-const shouldShowHeader = !['*'].includes(window.location.pathname)
+const shouldShowHeader = !['/', '*'].includes(window.location.pathname)
   return (
     <div className='App'>
       {shouldShowHeader && <Header/>}
