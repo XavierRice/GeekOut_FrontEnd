@@ -1,0 +1,14 @@
+.Games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .table-stripe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px; /* Set your desired maximum width for the grid */
+    width: 100%;
+  }

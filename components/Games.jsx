@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Game from "./Game.jsx";
-
+import './games.css'
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
