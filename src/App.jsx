@@ -12,8 +12,7 @@ import Rawg from '../components/Rawg.jsx'
 
 //COMPONENTS
 import GameDetails from '../components/GameDetails.jsx'
-import NavBar from '../components/NavBar.jsx'
-import GamesCard from '../components/gamesCards.jsx'
+
 import GaspHome from '../components/GaspHome.jsx'
 import Header from '../components/Header.jsx'
 import About from '../components/About.jsx'
