@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
+import BackgroundVideo from "./BackgroudVideo";
 import imgObj from "../src/assets/pictures";
 import './GameDetails.css'
 
@@ -17,16 +18,13 @@ const GameDetails = ({ setGameName }) => {
     try {
       const res = await fetch(`${API}/games/${id}`);
       if (!res.ok) {
-        console.log(res);
+     
         throw new Error("Get id ain't getting");
       }
       const resJson = await res.json();
-      console.log(resJson);
-      setGame(resJson);
 
-      // const Base_URL = "http://localhost:8090/"
-      // const fullImageUrl = Base_URL + resJson.image_id
-      console.log("image:", resJson.image_id)
+      setGame(resJson);
+      
       setImageUrl(resJson.image_id)
     } catch (error) {
       console.error(error);
@@ -57,52 +55,55 @@ const GameDetails = ({ setGameName }) => {
   console.log(imageUrl)
 
   return (
-    <div key={game.id} className="container mt-5">
-      <div className="card game-card">
-        <img
-          className="card-img-top"
-          src={imgObj[imageUrl]}
-          alt="Card image cap"
-        ></img>
-        <div className="card-body">
-          <h2 className="card-title">{game.name}</h2>
-          <h4 className="card-text">{game.genre}</h4>
-          <p className="card-body">{game.storyline}</p>
-          <div className="list-group list-group-flush">
-            <section className="list-group-item favorite-badge">
-              {game.is_favorite ? (
-                <span>⭐️</span>
-              ) : (
-                <span>&nbsp; &nbsp; &nbsp;</span>
-              )}
-            </section>
-            <p className="list-group-item" >{game.id}</p>
-            <section className="list-group-item">
-              {game.video_id ? (
-                <ReactPlayer className="video-player"
-                  url={`https://www.youtube.com/watch?v=${game.video_id}`}
-                  loop={true}
-                />
-              ) : (
-                <span>&nbsp; &nbsp; &nbsp;</span>
-              )}
-            </section>
+    <div>
+      <BackgroundVideo videoUrl={"https://www.youtube.com/watch?v=sCuGHKBLJBQ&list=PLHJogB7e47KV_7ING3EB1anBymVGniOCv&index=6"} />
+      <div key={game.id} className="container mt-5">
+        <div className="card game-card">
+          <img
+            className="card-img-top"
+            src={imgObj[imageUrl]}
+            alt="Card image cap"
+          ></img>
+          <div className="card-body">
+            <h2 className="card-title">{game.name}</h2>
+            <h4 className="card-text">{game.genre}</h4>
+            <p className="card-body">{game.storyline}</p>
+            <div className="list-group list-group-flush">
+              <section className="list-group-item favorite-badge">
+                {game.is_favorite ? (
+                  <span>⭐️</span>
+                ) : (
+                  <span>&nbsp; &nbsp; &nbsp;</span>
+                )}
+              </section>
+              <p className="list-group-item" >{game.id}</p>
+              <section className="list-group-item">
+                {game.video_id ? (
+                  <ReactPlayer className="video-player"
+                    url={`https://www.youtube.com/watch?v=${game.video_id}`}
+                    loop={true}
+                  />
+                ) : (
+                  <span>&nbsp; &nbsp; &nbsp;</span>
+                )}
+              </section>
+            </div>
           </div>
-        </div>
-        <div className="card-body gameNav">
-          <div className="card-link">
-            {" "}
-            <Link to={`/games`}>
-              <button>Back</button>
-            </Link>
-          </div>
-          <div className="btn btn-secondary">
-            {" "}
-            <Link to={`/games/${id}/edit`}>
-              <h3 className="btn btn-primary">Edit</h3>
-            </Link>{" "}
-            <div className="btn btn-danger">
-              <button onClick={handleDelete}> Delete</button>
+          <div className="card-body gameNav">
+            <div className="card-link">
+              {" "}
+              <Link to={`/games`}>
+                <button>Back</button>
+              </Link>
+            </div>
+            <div className="btn btn-secondary">
+              {" "}
+              <Link to={`/games/${id}/edit`}>
+                <h3 className="btn btn-primary">Edit</h3>
+              </Link>{" "}
+              <div className="btn btn-danger">
+                <button onClick={handleDelete}> Delete</button>
+              </div>
             </div>
           </div>
         </div>

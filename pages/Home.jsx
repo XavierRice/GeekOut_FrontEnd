@@ -1,9 +1,19 @@
+import { useState } from "react";
+import Header from "../components/Header";
+
+
+import "./Home.css"
+
 export default function Home() {
-    return (
-      <div className="Home">
-        <h2>Welcome to:</h2>
-        <h3>GEEK OUT:Retro Entertainment!</h3>
-      </div>
-    );
-  }
-  
+  const [showNavBar, setShowNavBar] = useState(false);
+
+  const handleScreenClick = () => {
+    setShowNavBar(!showNavBar);
+  };
+
+  return (
+    <div className="Home1" onClick={handleScreenClick}>
+      {showNavBar && <Header />} {/* Render the NavBar component when showNavBar is true */}
+    </div>
+  );
+}

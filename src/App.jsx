@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css'
 
 //PAGES
@@ -21,11 +21,11 @@ function App() {
   
 const [ gameName, setGameName] = useState("")
 
-
+const shouldShowHeader = !['*'].includes(window.location.pathname)
   return (
     <div className='App'>
+      {shouldShowHeader && <Header/>}
       <main>
-        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Index/>} />

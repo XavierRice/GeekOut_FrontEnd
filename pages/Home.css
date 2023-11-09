@@ -1,0 +1,29 @@
+.Home1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("src/assets/Portal.jpg") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .NavBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust the height of your navigation bar */
+    background-color: #333; /* Set your desired background color */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  
+  
+  
