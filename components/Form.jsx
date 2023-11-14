@@ -43,7 +43,7 @@ const Form = () => {
   };
 
   const handleCheck = (event) => {
-    setSong({ ...game, is_favorite: !game.is_favorite })
+    setGame({ ...game, is_favorite: !game.is_favorite })
 }
 
   const addGame = async () => {
